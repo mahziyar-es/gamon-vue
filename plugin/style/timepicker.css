@@ -1,0 +1,15 @@
+.gamon-timepicker{
+    display:flex; 
+    align-items:center; 
+    justify-content: space-between;
+    width:100%;
+    direction: ltr;
+}
+.gamon-timepicker__slot{
+    width:25%
+}
+.gamon-timepicker__daytime-toggler{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,29 @@
+.gamon-checkbox{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-top:8px;
+}
+
+.gamon-checkbox__input{
+    display: none;
+}
+.gamon-checkbox__checkmark{
+    width:20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    display: inline-block;
+    transition: 0.5s;
+}
+.gamon-checkbox__checkmark--checked{
+    background: gray;
+}
+
+.gamon-checkbox__title{
+    margin-left: 8px;
+}
+html[dir="rtl"] .gamon-checkbox__title{
+    margin-right: 8px;
+}
+

@@ -1,0 +1,93 @@
+.gamon-carousel{
+    width: 100%;
+    position: relative;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    direction: ltr;
+}
+
+.gamon-carousel__items-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+
+.gamon-carousel__item{
+    height: 100%;
+    max-width: 100%;
+    position: relative;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+
+
+
+/* 
+    *********************************************************************************************
+    ************************************ nav ****************************************************
+    *********************************************************************************************
+*/
+.gamon-carousel__nav-next{
+    position: absolute;
+    z-index: 2;
+    color:white;
+    top:0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}   
+.gamon-carousel__nav-prev{
+    position: absolute;
+    z-index: 2;
+    color:white;
+    top:0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}   
+
+
+
+
+/* 
+    *********************************************************************************************
+    ************************************ indicator **********************************************
+    *********************************************************************************************
+*/
+.gamon-carousel__indicators-container{
+    position: absolute;
+    bottom: 10px;
+    left:0;
+    right:0;
+    margin: auto;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gamon-carousel__indicators-container__indicator{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgb(255, 255, 255);
+    margin-left: 2px;
+    margin-right: 2px;
+    cursor: pointer;
+    border: 1px solid gray;
+}
+.gamon-carousel__indicators-container__indicator--active{
+    background: rgb(0, 0, 0);
+}

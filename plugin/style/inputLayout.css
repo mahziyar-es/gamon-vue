@@ -1,0 +1,57 @@
+
+.gamon-input{
+    position: relative;
+    width: 100%;
+}
+.gamon-input__title{
+    margin-bottom: 5px;
+}
+.gamon-input__icon-container{
+    border-radius: 5px;
+    background: rgba(233, 233, 233, 0.487);
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: 0.5s;
+    min-height: 35px;
+    border: 1px solid #d8d8d8;
+}
+.gamon-input__icon-container__icon{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.gamon-input__icon-container__icon img{
+    width: 100%;
+    height: 100%;
+}
+
+.gamon-input__input{
+    border-radius: 5px;
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+    min-height: inherit;
+    border: none;
+    margin-left: 5px;
+    margin-right: 5px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+}
+.gamon-input__input:focus{
+    outline: none;
+}
+html[dir="rtl"] .gamon-input__icon-container__icon{
+    border-right:none;
+    padding-left: 8px;
+    padding-right: 0;
+}
+

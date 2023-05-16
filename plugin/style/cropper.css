@@ -1,0 +1,53 @@
+.gamon-cropper{
+    overflow: hidden;
+    position: relative;
+    height: fit-content;
+    padding: 0;
+    margin: 0;
+    width: fit-content;
+    height: fit-content;
+}
+.gamon-cropper__image{
+    width:100%; 
+    height:100%;
+}
+.gamon-cropper__window{
+    border:2px solid black;
+    position: absolute;
+    margin: auto;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+}
+.gamon-cropper__resize-handle{
+    width:20px;
+    height:20px;
+    border-radius: 50%;
+    background: red;
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    cursor: ns-resize;
+}
+.gamon-cropper__canvas{
+    display: none;
+}
+.gamon-cropper__done_button_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gamon-cropper__done_button{
+    width:100%; 
+    border:1px solid rgb(211, 211, 211); 
+    height:30px; 
+    border-radius:5px;
+    cursor: pointer;
+    margin: auto;
+}
+.gamon-cropper__resize-handle-container{
+    position:relative;
+    height:100%;
+}

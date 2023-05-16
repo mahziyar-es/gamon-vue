@@ -1,0 +1,26 @@
+.gamon-radio{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-top:8px;
+}
+.gamon-radio__input{
+    display: none;
+}
+.gamon-radio__checkmark{
+    width:20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    display: inline-block;
+    transition: 0.5s;
+}
+.gamon-radio__title{
+    margin-left: 8px;
+}
+html[dir="rtl"] .gamon-radio__title{
+    margin-right: 8px;
+}
+.gamon-radio__input:checked  ~ .gamon-radio__checkmark {
+    background-color: gray;
+}

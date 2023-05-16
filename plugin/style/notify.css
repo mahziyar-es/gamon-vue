@@ -1,0 +1,90 @@
+.gamon-notify{
+    position: fixed;
+    height: fit-content;
+    width: fit-content;
+    z-index: 100;
+}
+.gamon-notify--position-bottom{
+    left: 0;
+    right: 0;
+    bottom:10px;
+    margin: auto;
+}
+.gamon-notify--position-bottom-left{
+    left: 10px;
+    bottom:10px;
+}
+.gamon-notify--position-bottom-right{
+    right: 10px;
+    bottom:10px;
+}
+.gamon-notify--position-top{
+    left: 0;
+    right: 0;
+    top:10px;
+    margin: auto;
+}
+.gamon-notify--position-top-left{
+    left: 10px;
+    top:10px;
+}
+.gamon-notify--position-top-right{
+    right: 10px;
+    top:10px;
+}
+.gamon-notify--position-center{
+    left: 0;
+    right: 0;
+    top:0;
+    bottom:0;
+    margin: auto;
+}
+
+
+.gamon-notify__content-container{
+    display: flex;
+    min-height: 30px;
+    width: 300px;
+    margin-bottom: 16px;
+    background: black;
+    color:white;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    box-shadow: 0px 3px 3px black;
+    position: relative;
+}
+
+.gamon-notify__content-container--type-success{
+   background: rgb(13, 243, 13);
+}
+.gamon-notify__content-container--type-error{
+   background: red;
+}
+
+.gamon-notify__content-container__text{
+    margin: 0;
+    word-break: break-all;
+}
+
+.gamon-notify__content-container__timer{
+    width: 90%;
+    height: 1px;
+    background: white;
+    border-radius: 50px;
+    margin-top: 8px;
+    transition: width linear;
+    position: absolute;
+    bottom: 0px;
+}
+
+
+.gamon-notify__content-container__dismiss-button{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    max-height: 17px;
+    cursor: pointer;
+}

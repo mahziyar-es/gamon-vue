@@ -1,0 +1,131 @@
+.gamon-input-date{
+    display:flex; 
+    flex-direction:column; 
+    justify-content:space-between;
+    width: 100%;
+    min-height:inherit;
+    direction: ltr;
+}
+
+
+
+.gamon-input-date__days-table-container__weekday-names-container__name{
+    width:35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:2px;
+}
+
+.gamon-input-date__days-table-container__days-table__day:not(.gamon-input-date__days-table-container__days-table__day--empty){
+    width:35px;
+    min-width:35px;
+    height:35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:1px solid rgb(204, 204, 204);
+    margin:1px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.1s;
+    position: relative;
+}
+.gamon-input-date__days-table-container__days-table__day--empty{
+    width:35px;
+    min-width:35px;
+    height: 35px;
+    border:1px solid rgb(204, 204, 204);
+    border-radius: 5px;
+    margin:1px;
+    pointer-events: none;
+    background: rgb(232, 232, 232);
+}
+.gamon-input-date__days-table-container__days-table__day--selected{
+    background: rgb(252, 130, 0);
+    color:white
+}
+.gamon-input-date__days-table-container__days-table__day--today{
+   border:1px solid #0059d4 !important;
+}
+.gamon-input-date__days-table-container__days-table__day:hover:not(.gamon-input-date__days-table-container__days-table__day--selected){
+   background: rgb(218, 218, 218);
+}
+
+
+.gamon-input-date__year-month-container__year-picker{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%;
+}
+.gamon-input-date__year-month-container__month-picker{
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+}
+
+
+
+.gamon-input-date__year-month-container__months-selection-page{
+    display:flex; 
+    align-items:center; 
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: inherit;
+}
+
+
+.gamon-input-date__bottom-buttons{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+
+
+
+
+.gamon-input-date__year-month-container{
+    display:flex;align-items:center; justify-content:space-between;
+}
+.gamon-input-date__days-table-container__weekday-names-container{
+    display:flex; align-items:center;
+}
+.gamon-input-date__days-table-container__days-table{
+    display:flex; align-items:center;
+}
+.gamon-input-date__bottom-buttons__done-button{
+    cursor:pointer; width:40px; height:40px; background:orange; border-radius:50%; font-size:15px; display:flex;align-items:center; justify-content:center
+}
+.gamon-input-date__bottom-buttons__today-button{
+    cursor: pointer;
+}
+.gamon-input-date__bottom-buttons__clear-button{
+    cursor: pointer;
+    color:red;
+}
+
+.gamon-input-date__year-month-container__months-selection-page__month{
+    width:25%; margin:10px;text-align:center;
+    cursor: pointer;
+}
+.gamon-input-date__days-table-container{
+    width: fit-content;
+    margin: auto;
+}
+
+
+.gamon-input-date__year-month-container__year-picker__year{
+    margin:0;
+}
+.gamon-input-date__year-month-container__month-picker__month{
+    margin:16px
+}

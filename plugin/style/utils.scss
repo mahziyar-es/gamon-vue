@@ -1,0 +1,379 @@
+$colors : (
+    "purple": #c56cf0,
+    "purple-dark": #6F1E51,
+    "purple-light": #deaff5,
+
+    "red": #ff3838,
+    "red-dark": #e20000,
+    "red-light": #ff9090,
+
+    "green": #42f526 ,
+    "green-dark": #1cd500 ,
+    "green-light": #9ffd90 ,
+
+    "orange" : #fd8027,
+    "orange-dark" : #d35400,
+    "orange-light" : #ffb37d,
+
+    "blue" : #3867d6,
+    "blue-dark" : #003bc3,
+    "blue-light" : #8aacf9,
+
+    "yellow" : #fff200,
+    "yellow-dark" : #d7d000,
+    "yellow-light" : #fff875,
+
+    "gray" : #aaa69d,
+    "gray-dark" : #858382,
+    "gray-light" : #e0dfdf,
+
+    "black" : #0000,
+    "white" : #ffff,
+);
+
+$sides-constant : (
+    "": "",
+    "-top": "-top",
+    "-bottom": "-bottom",
+);
+
+$sides-ltr:(
+    "-start": "-left",
+    "-end": "-right",
+);
+
+$sides-rtl:(
+    "-start": "-right",
+    "-end": "-left",
+);
+
+$remSizes : (
+    "0": 0,
+    "1": 0.25,
+    "2": 0.5,
+    "3": 0.75,
+    "4": 1,
+    "5": 1.25,
+    "6": 1.5,
+    "7": 1.75,
+    "8": 2,
+    "9": 2.25,
+    "10": 2.5,
+    "11": 2.75,
+    "12": 3,
+);
+
+$cursorStyles :(
+    "pointer": pointer,
+    "grab": grab,
+    "copy": copy,
+    "default": default,
+    "none": none,
+    "progress": progress,
+    "wait": wait,
+    "zoom-in": zoom-in,
+    "zoom-out": zoom-out,
+    "text": text,
+);
+
+
+
+@mixin font-size {
+    @for $size from 1 through 25{
+        &-#{$size}px{
+            font-size: $size*1px;
+        }
+    }
+};
+
+
+@mixin cursor(){
+    @each $name,$value in $cursorStyles{
+        &-#{$name}{
+            cursor: $value;
+        }
+    }
+};
+
+
+@mixin generateDistProp($prop, $sides){
+    @each $sideName, $sideValue in $sides{
+        @each $remSizeName, $remSizeValue in $remSizes {
+            &#{$sideName}-#{$remSizeName}{
+                #{$prop}#{$sideValue}: $remSizeValue*1rem;
+            }
+        }
+    }
+};
+
+
+@mixin margin-auto($sides) {
+    @each $sideName, $sideValue in $sides{
+        &#{$sideName}-auto{
+            margin#{$sideValue}: auto;
+        }
+    }
+};
+
+
+@mixin border($sides) {
+    @each $sideName, $sideValue in $sides{
+        @for $size from 0 through 5{
+            &#{$sideName}-#{$size}px{
+                border#{$sideValue}: $size*1px solid gray;
+            }
+        }
+    }
+};
+
+
+@mixin colors($prop:'background') {
+    @each $colorName,$colorValue in $colors{
+        &-#{$colorName}{
+            #{$prop}: $colorValue !important;
+        }
+    }
+};
+
+
+
+$dimSizeOptions : inherit, fit-content, none, revert, auto, unset ;
+@mixin dimSizeGenerator($prop) {
+    @for $i from 0 through 20 {
+        $size : $i * 5;
+        .#{$prop}-#{$size}{ 
+            #{$prop} : $size *1%
+        }   
+    }
+
+    @each $option in $dimSizeOptions{
+        .#{$prop}-#{$option}{ 
+            #{$prop} : $option
+        }   
+    } 
+}
+
+
+@mixin borderRadius($sides) {
+    @each $sideName, $sideValue in $sides{
+        @each $remSizeName, $remSizeValue in $remSizes {
+            &#{$sideName}-#{$remSizeName}{
+                @if $sideValue == "-top" or $sideValue == "-bottom"{
+                    border#{$sideValue}-left-radius: $remSizeValue*1rem;
+                    border#{$sideValue}-right-radius: $remSizeValue*1rem;
+                } @else if($sideValue == "-start" or $sideValue == "-end") {
+                    border#{$sideValue}-top-radius: $remSizeValue*1rem;
+                    border#{$sideValue}-bottom-radius: $remSizeValue*1rem;
+                } @else{
+                    border-radius: $remSizeValue*1rem;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+@include dimSizeGenerator('width');
+@include dimSizeGenerator('max-width');
+@include dimSizeGenerator('min-width');
+@include dimSizeGenerator('height');
+@include dimSizeGenerator('max-height');
+@include dimSizeGenerator('min-height');
+
+.font-size{
+    @include font-size
+};
+
+.padding{
+    @include generateDistProp('padding',$sides-constant);
+};
+
+.margin{
+    @include generateDistProp('margin',$sides-constant);
+    @include margin-auto($sides-constant);
+};
+
+.border{
+    @include border($sides-constant);
+    @include colors('border-color')
+};
+
+.background{
+    @include colors('background')
+}
+
+.text{
+    @include colors('color')
+}
+
+.rounded{
+    @include borderRadius($sides-constant);
+}
+.cursor{
+    @include cursor();
+}
+
+
+
+html{
+    &[dir=rtl] {
+        .margin{
+            @include generateDistProp('margin',$sides-rtl);
+            @include margin-auto($sides-rtl);
+        };
+        .padding{
+            @include generateDistProp('padding',$sides-rtl);
+        };
+        .border{
+            @include border($sides-rtl);
+        };
+        .rounded{
+            @include borderRadius($sides-rtl);
+        }
+    }
+
+    &:not([dir=rtl]) {
+        .margin{
+            @include generateDistProp('margin',$sides-ltr);
+            @include margin-auto($sides-ltr);
+        };
+        .padding{
+            @include generateDistProp('padding',$sides-ltr);
+        };
+        .border{
+            @include border($sides-ltr);
+        };
+        .rounded{
+            @include borderRadius($sides-ltr);
+        }
+    }
+}
+
+
+
+
+
+// flex & display
+
+$flexAlignItemsOptions : center, start, end, baseline, stretch;
+$flexAlignSelfOptions : center, start, end, baseline, stretch;
+$flexAlignContentOptions : center, start, end, rounded, stretch;
+$flexJustifyContentOptions : center, start, end, ("between", space-between), ("around", space-around), ("evenly", space-evenly);
+$flexDirectionOptions : row, row-reverse, column, column-reverse;
+$flexWrapOptions : wrap, wrap-reverse, nowrap;
+$displayOptions : flex,inline-flex, block,inline-block, none;
+$overflowOptions : auto, hidden, visible, scroll;
+$positionOptions : absolute, fixed, relative, static, sticky;
+
+
+@mixin flexStyleGenerator($prop, $options, $classNamePrefix : $prop) {
+    @each $option in $options{
+
+        $optionName : $option;
+        $optionValue : $option;
+
+        @if type-of($option) == list{
+            $optionName : nth($option, 1);
+            $optionValue : nth($option, 2);
+        }
+
+        .#{$classNamePrefix}-#{$optionName}{
+            #{$prop}: $optionValue;
+        }
+    }
+}
+
+@mixin flexGrowStyleGenerator($classNamePrefix:''){
+    @for $g from 0 through 5{
+        .#{$classNamePrefix}flex-grow-#{$g}{
+            flex-grow: $g;
+        }
+    }
+}
+
+
+@include flexStyleGenerator('align-items', $flexAlignItemsOptions);
+@include flexStyleGenerator('align-self', $flexAlignSelfOptions);
+@include flexStyleGenerator('align-content', $flexAlignContentOptions);
+@include flexStyleGenerator('justify-content', $flexJustifyContentOptions);
+@include flexStyleGenerator('flex-direction', $flexDirectionOptions, "flex");
+@include flexStyleGenerator('flex-wrap', $flexWrapOptions, "flex");
+@include flexGrowStyleGenerator;
+
+@include flexStyleGenerator('display', $displayOptions);
+
+@include flexStyleGenerator('overflow', $overflowOptions);
+@include flexStyleGenerator('overflow-x', $overflowOptions, 'overflow-x');
+@include flexStyleGenerator('overflow-y', $overflowOptions, 'overflow-y');
+
+@include flexStyleGenerator('position', $positionOptions);
+
+
+
+@mixin responsiveFlexStyleGenerator($widthSize){
+    @include flexStyleGenerator('align-items', $flexAlignItemsOptions, $widthSize+'-align-items');
+    @include flexStyleGenerator('align-self', $flexAlignSelfOptions, $widthSize+'-align-self');
+    @include flexStyleGenerator('align-content', $flexAlignContentOptions, $widthSize+'-align-content');
+    @include flexStyleGenerator('justify-content', $flexJustifyContentOptions, $widthSize+'-justify-content');
+    @include flexStyleGenerator('flex-direction', $flexDirectionOptions, $widthSize+"-flex");
+    @include flexStyleGenerator('flex-wrap', $flexWrapOptions, $widthSize+"-flex");
+    @include flexGrowStyleGenerator($widthSize+'-');
+
+    @include flexStyleGenerator('display', $displayOptions,$widthSize+"-display");
+}
+
+
+
+
+
+//  responsive
+@import "responsiveWidthSizes";
+
+@media only screen and (max-width: $smWidth*1px) {
+    @include responsiveFlexStyleGenerator('xs')
+}
+@media screen and (max-width: $smWidth*1px) {
+    @include responsiveFlexStyleGenerator('sm')
+}
+@media screen and (max-width: $mdWidth*1px) {
+    @include responsiveFlexStyleGenerator('md')
+}
+@media screen and (min-width: $lgWidth*1px) {
+    @include responsiveFlexStyleGenerator('lg')
+}
+
+
+
+
+.rounded-circle{
+    border-radius: 50%;
+}
+.flex-fill{
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+}
+
+
+.table{
+    width: 100%;
+}
+.table tr{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(214, 214, 214);
+    width: 100%;
+    justify-content: space-between;
+    padding: 8px;
+}
+.table td, .table th{
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    width: 100%;
+}
+.table--stripped tbody tr:nth-child(odd){
+    background: rgb(225, 224, 224);
+}

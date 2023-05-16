@@ -1,0 +1,33 @@
+.gamon-display-toggle{
+    display: none;
+}
+.gamon-display-toggle .dta-child{
+    transition: all 0.15s linear;
+    opacity: 0;
+}
+.gamon-display-toggle--show .dta-child{
+    opacity: 1;
+}
+
+
+.gamon-display-toggle--animation-slide-up:not(.gamon-display-toggle--show) .dta-animated{
+    transform: translateY(50px);
+}
+.gamon-display-toggle--animation-slide-down:not(.gamon-display-toggle--show) .dta-animated{
+    transform: translateY(-50px);
+}
+.gamon-display-toggle--animation-slide-right:not(.gamon-display-toggle--show) .dta-animated{
+    transform: translateX(-50px);
+}
+.gamon-display-toggle--animation-slide-left:not(.gamon-display-toggle--show) .dta-animated{
+    transform: translateX(+50px);
+}
+.gamon-display-toggle--animation-fade:not(.gamon-display-toggle--show) .dta-animated{
+    opacity: 0;
+}
+.gamon-display-toggle--animation-scale:not(.gamon-display-toggle--show) .dta-animated{
+    transform: scale(0);
+}
+.gamon-display-toggle--animation-rotate:not(.gamon-display-toggle--show) .dta-animated{
+    transform: rotate(180deg);
+}

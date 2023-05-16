@@ -1,0 +1,33 @@
+
+.gamon-grid-col{
+  flex: 0 0 auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+
+$totalCols : 12;
+@mixin responsiveWidthGenerator($prefix){
+  @for $i from 1 through $totalCols{
+    .#{$prefix}-#{$i}{
+      width : calc($i/$totalCols)*100%
+    }
+  }
+}
+
+
+
+@import "responsiveWidthSizes";
+
+@media only screen and (max-width: $smWidth * 1px) {
+  @include responsiveWidthGenerator('xs')
+}
+@media screen and (min-width: $smWidth * 1px) {
+  @include responsiveWidthGenerator('sm')
+}
+@media screen and (min-width: $mdWidth * 1px) {
+  @include responsiveWidthGenerator('md')   
+}
+@media screen and (min-width: $lgWidth * 1px) {
+  @include responsiveWidthGenerator('lg')
+}

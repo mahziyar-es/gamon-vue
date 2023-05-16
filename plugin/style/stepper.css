@@ -1,0 +1,64 @@
+.gamon-stepper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 5px;
+    width: fit-content;
+}
+.gamon-stepper div{
+    margin: 5px;
+}
+.gamon-stepper--vertical{
+    flex-direction: column;
+}
+.gamon-stepper__number-container{
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    margin-left: 8px;
+    margin-right: 8px;
+    direction: ltr;
+}
+.gamon-stepper__step{
+    border-radius: 50%;
+    width:20px;
+    height: 20px;
+    min-width:20px;
+    min-height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border:1px solid gray;
+}   
+
+.gamon-stepper__number-container__editable-input{
+    text-align:center; 
+    border-radius: 5px;
+    border: 1px solid #e7e2e2;
+    min-height: 25px;
+    background: transparent;
+    width: 100%;
+    height:100%;
+}
+.gamon-stepper__number-container__editable-input:focus{
+    outline: none;
+}
+
+.gamon-stepper__number-container__editable-input::-webkit-outer-spin-button,
+.gamon-stepper__number-container__editable-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+.gamon-stepper__number-container__editable-input[type=number] {
+-moz-appearance: textfield;
+}
+
+.gamon-stepper__step__operation-image{
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+}

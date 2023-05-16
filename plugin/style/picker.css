@@ -1,0 +1,89 @@
+.gamon-picker{
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    border:1px solid rgb(218, 218, 218);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: grab;
+    direction: ltr;
+}
+.gamon-picker__options-container{
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    position: relative;
+    transition: 0.2s;
+}
+.gamon-picker--vertical .gamon-picker__options-container{
+    flex-direction: column;
+}
+.gamon-picker--horizontal .gamon-picker__options-container{
+    flex-direction: row;
+    display: inline-flex;
+    align-items: center;
+}
+.gamon-picker__options-container__option{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    margin: auto;
+    flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+    -moz-flex-shrink: 0;
+}
+.gamon-picker--vertical .gamon-picker__options-container__option{
+    width: 95%;
+}
+.gamon-picker--horizontal .gamon-picker__options-container__option{
+    height: 95%;
+}
+.gamon-picker__options-container__option--selected{
+    opacity: 1;
+    font-weight: bold;
+    word-break: break-word;
+}
+.gamon-picker__selected-frame{
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right: 0;
+    margin: auto;
+}
+.gamon-picker--horizontal .gamon-picker__selected-frame{
+    height: 90%;
+    border-left:1px solid rgb(218, 218, 218);
+    border-right:1px solid rgb(218, 218, 218);
+}
+.gamon-picker--vertical .gamon-picker__selected-frame{
+    width: 90%;
+    border-top:1px solid rgb(218, 218, 218);
+    border-bottom:1px solid rgb(218, 218, 218);
+}
+.gamon-picker__arrow{
+    position:absolute;
+    z-index:2;
+}
+.gamon-picker__arrow-left{
+    position:absolute;
+    left: 5px;
+}
+.gamon-picker__arrow-right{
+    position:absolute;
+    right:5px;
+}
+.gamon-picker__arrow-up{
+    position:absolute;
+    top:5px;
+}
+.gamon-picker__arrow-down{
+    position:absolute;
+    bottom:5px;
+}

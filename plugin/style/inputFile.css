@@ -1,0 +1,96 @@
+.gamon-input-file{
+    width:100%; min-height:inherit; overflow: hidden;
+}
+
+.gamon-input-file__selected-file-name{
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.gamon-input-file__single-file-preview-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin:auto;
+    overflow: hidden;
+    padding: 8px;
+}
+.gamon-input-file__multi-file-preview-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 2px;
+    overflow: hidden;
+    margin-right: 8px;
+}
+
+.gamon-input-file__single-file-preview-container__remove-file-btn{
+    position: absolute;
+    z-index: 2;
+    left: 10px;
+    top: 2px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 1px 1px 3px black;
+    cursor: pointer;
+}
+.gamon-input-file__multi-file-preview-container__remove-file-btn{
+    position: absolute;
+    z-index: 2;
+    left: 10px;
+    top: 2px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 1px 1px 3px black;
+    cursor: pointer;
+}
+.gamon-input-file__multi-file-name-preview__remove-file-btn{
+    position: relative;
+    z-index: 2;
+    left: 0px;
+    top: 2px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 1px 1px 3px black;
+    cursor: pointer;
+}
+
+
+.gamon-input-file__multi-file-name-preview{
+    background: gray;
+    color:white;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+    position: relative;
+    overflow: hidden;
+    word-break: break-all;
+}
+.gamon-input-file__preview{
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+audio.gamon-input-file__preview{
+    min-width: 100px;
+    min-height: 30px;
+}
+
+.gamon-input-file__input{
+    display: none;
+}

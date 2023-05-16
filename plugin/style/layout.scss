@@ -1,0 +1,105 @@
+.gamon-layout{
+    overflow: hidden;
+}
+.gamon-layout__sidebar{
+    width: 280px;
+    height: 100vh;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: gray;
+    transition: 0.5s;
+}
+
+html[dir=rtl] .gamon-layout__sidebar--position-start{
+    right: 0;
+}
+html:not([dir=rtl]) .gamon-layout__sidebar--position-start{
+    left: 0;
+}
+
+html:not([dir=rtl]) .gamon-layout__sidebar--position-end{
+    right: 0;
+}
+html[dir=rtl] .gamon-layout__sidebar--position-end{
+    left: 0;
+}
+
+html[dir=rtl] .gamon-layout__sidebar--position-start.gamon-layout__sidebar--hide{
+    right: -100%;
+}
+html:not([dir=rtl]) .gamon-layout__sidebar--position-start.gamon-layout__sidebar--hide{
+    left: -100%;
+}
+html[dir=rtl] .gamon-layout__sidebar--position-end.gamon-layout__sidebar--hide{
+    left: -100%;
+}
+html:not([dir=rtl]) .gamon-layout__sidebar--position-end.gamon-layout__sidebar--hide{
+    right: -100%;
+}
+
+
+// .gamon-layout__sidebar--hide *{
+//     display: none;
+// }
+
+.gamon-layout__sidebar__toggler{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+.gamon-layout__sidebar__toggler--open{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    position: fixed;
+    z-index: 2;
+}
+
+
+
+.gamon-layout__content{
+    padding: 16px;
+    // width: 100%;
+    transition: 0.5s;
+    position: relative;
+    left: 15px;
+    top: 10px;
+}
+.gamon-layout__content__topbar{
+    background: coral;
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+}
+
+
+
+
+
+.gamon-layout__sidebar__link{
+    width: 100%;
+    padding: 8px;
+    transition: 0.3s;
+    cursor: pointer;
+    // margin-bottom: 8px;
+    margin-top: 8px;
+    position: relative;
+    overflow:hidden;
+}
+.gamon-layout__sidebar__link:hover{
+    background: darkgray;
+}
+.gamon-layout__sidebar__link__branches{
+    overflow: hidden;
+    transition: 0.5s;
+    position: relative;
+}

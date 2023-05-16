@@ -1,0 +1,102 @@
+.gamon-button{
+    position: relative;
+    border-radius:5px; 
+    cursor: pointer;
+    padding: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    transition: 0.5s;
+}
+.gamon-button__text{
+    transition: 0.2s;
+}
+
+
+
+.gamon-button--rounded{
+    border-radius: 50px;
+}
+
+.gamon-button--disabled{
+    pointer-events: none;
+    opacity: 0.5;
+}
+.gamon-button--width-parent{
+    max-width: 100% !important;
+}
+
+
+
+/* 
+    *********************************************************************************************
+    ************************************ types **************************************************
+    *********************************************************************************************
+*/
+
+.gamon-button--type-default{
+    border:none; 
+    box-shadow: 0px 1px 1px grey;
+}
+.gamon-button--type-default:hover{
+    transition: 0.12s;
+}
+
+.gamon-button--type-outline{
+    border:2px solid gray; 
+    background-color: transparent;
+}
+
+
+/* 
+    *********************************************************************************************
+    ************************************ sizes **************************************************
+    *********************************************************************************************
+*/
+.gamon-button--size-small{
+    height: 30px;
+    max-width: 100px;
+    font-size: 12px;
+}
+.gamon-button--size-medium{
+    height: 35px;
+    max-width: 150px;
+    font-size: 14px;
+}
+.gamon-button--size-large{
+    height: 45px;
+    max-width: 250px;
+    font-size: 20px;
+}
+
+
+
+
+/* 
+    *********************************************************************************************
+    ************************************ loading **************************************************
+    *********************************************************************************************
+*/
+.gamon-button--loading{
+    pointer-events: none;
+}
+.gamon-button--loading .gamon-button__text{
+    opacity: 0.5;
+    transform: translate(-10px, 0);
+}
+html[dir="rtl"] .gamon-button--loading .gamon-button__text{
+    transform: translate(10px, 0);
+}
+
+
+
+
+
+
+.gamon-button_loading-animation_custom{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+

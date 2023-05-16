@@ -1,0 +1,21 @@
+.gamon-grab-scroll{
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    align-items: center;
+    cursor: grab;
+}
+
+.gamon-grab-scroll--vertical{
+    height: inherit;
+    min-height: inherit;
+    max-height: inherit;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: grab;
+}
