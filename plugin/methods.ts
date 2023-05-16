@@ -2,16 +2,23 @@ import { useConfirm } from './components/Confirm/confirm'
 import { useSheet } from './components/Sheet/sheet'
 import { useNotify } from './components/Notify/notify'
 import {
-    Confirm,
-    SheetToggle,
-    Notify,
-    GamonProvide
+    ToggleAnimations,
 } from '@/types/general.type'
 import { windowResponsiveWidth, callBasedOnResponsiveWidth } from './utils'
+import NotifyTextBox from '@/components/Notify/NotifyTextBox.vue'
+import Sheet from '@/components/Sheet/Sheet.vue'
 
 
-
-const confirm : Confirm = (title, text, confirmCallback, cancelCallback?, animation?, type?, confirmButtonText?, cancelButtonText?) => {
+const confirm  = (
+    title: string,
+    text: string,
+    confirmCallback: () => void,
+    cancelCallback?: () => void,
+    animation?:  ToggleAnimations,
+    type?: InstanceType<typeof Sheet>['type'],
+    confirmButtonText ?: string,
+    cancelButtonText?: string,
+) => {
     useConfirm.setTitle(title)
     useConfirm.setText(text)
     useConfirm.setConfirmCallback(confirmCallback)
@@ -31,12 +38,17 @@ const confirm : Confirm = (title, text, confirmCallback, cancelCallback?, animat
 }
 
 
-const sheetToggle : SheetToggle = (id) => {
+const sheetToggle =  (id: string) => {
    useSheet.toggle(id)
 }
 
 
-const notify: Notify = (text, type, duration, animation) => {
+const notify = (
+    text: string,
+    type?: InstanceType<typeof NotifyTextBox>['type'],
+    duration?: number,
+    animation?: ToggleAnimations,
+) => {
     useNotify.setNotify(text, type, duration, animation)
 }
 
@@ -44,7 +56,7 @@ const notify: Notify = (text, type, duration, animation) => {
 
 
 
-const methods: GamonProvide = {
+const methods = {
     confirm,
     sheetToggle,
     notify,

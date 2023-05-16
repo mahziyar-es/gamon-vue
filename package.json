@@ -2,7 +2,7 @@
   
   "name": "gamon-vue",
   "description": "a Vue 3 easy to use and highly customizable UI component and css class utility plugin. Including components like inputs, carousel, cropper, picker, button, sheet or modal and more.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "files": [
     "dist"

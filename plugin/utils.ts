@@ -1,5 +1,3 @@
-import {CallBasedOnResponsiveWidthType} from '@/types/general.type'
-
 const showAnimation = (el: HTMLElement, callback?: () => void) => {
     el.style.display='block'
     setTimeout(()=>{
@@ -115,7 +113,11 @@ const windowResponsiveWidth = (): string => {
 
 
 
-const callBasedOnResponsiveWidth :CallBasedOnResponsiveWidthType = (callback, width, operator = '==') => {
+const callBasedOnResponsiveWidth = (
+    callback: () => void,
+    width: string,
+    operator: string = '=='
+) => {
     const windowWidth = window.innerWidth
 
     const keys = Object.keys(responsiveWidthSizes)

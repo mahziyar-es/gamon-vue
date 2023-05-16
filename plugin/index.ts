@@ -32,11 +32,10 @@ import { useButton } from './components/Button/button'
 import { useSheet } from './components/Sheet/sheet'
 import { useConfirm } from './components/Confirm/confirm'
 
-
-import { GamonPluginOptions } from '@/types/general.type'
-
 import longClickDirective from '@/directives/long-click'
 import customClickDirective from '@/directives/custom-click'
+
+import type { GamonPluginOptions } from './types/general.type'
 
 import '@/style/general.css'
 import '@/style/animation.css'

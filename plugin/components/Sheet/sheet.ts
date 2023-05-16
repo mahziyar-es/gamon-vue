@@ -1,4 +1,4 @@
-import type { ToggleAnimations, GamonSheetConfigOptions } from '@/types/general.type'
+import type { GamonSheetConfigOptions, ToggleAnimations } from '@/types/general.type'
 import { ref, reactive } from 'vue'
 import { showAnimation, hideAnimation } from '@/utils'
 
