@@ -113,14 +113,18 @@ Enjoy :)
 
 ### Carousel
 ```javascript
-<Carousel>
+const indexOfVisibleSlide = ref(0)
+
+<Carousel v-model="indexOfVisibleSlide">
   <img src="img1.jpg" />
   <img src="img2.jpg" />
   <img src="img3.jpg" />
 </Carousel>
 
  /**
+  * 
   *  ====== PROPS ======
+  *   v-model?: number => index of visible slide
   * 
   *   itemsPerView?: number => how many items should be shown in each slide
   * 
