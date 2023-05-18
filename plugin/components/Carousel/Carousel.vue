@@ -35,11 +35,12 @@
 
 
 <script setup lang="ts">
-    import {ref, onMounted, onUnmounted ,onUpdated} from 'vue'
+    import {ref, onMounted, onUnmounted ,onUpdated, watch} from 'vue'
     import '@/style/carousel.css'
 
     
     const props = defineProps<{
+        modelValue ?: number,
         itemsPerView ?: number,
         itemsPerSlide ?: number,
         eachItemMargin ?: number,
@@ -66,10 +67,10 @@
     const mouseMoveDetectionDelay = ref()
     const autoIntervalValue = ref()
     const autoIntervalDuration = ref<number>(props.duration || 4000)
-    const indexOfVisibleItem = ref<number>(0)
+    const indexOfVisibleItem = ref<number>(props.modelValue || 0)
     const translation = ref<number>(0)
 
-
+    const emits = defineEmits(['update:modelValue'])
 
     onMounted(()=>{
         let childs = carouselItemsContainerEl.value!.children
@@ -99,6 +100,11 @@
     })
 
 
+    watch(indexOfVisibleItem, () => {
+        emits('update:modelValue', indexOfVisibleItem.value)
+    })
+
+
 
     const carouselInit = ()=>{
         
@@ -124,6 +130,8 @@
             if(props.eachItemHeight)
                 child.style.height = props.eachItemHeight+'px'
         })
+
+        navigate(indexOfVisibleItem.value)
     }
 
 
@@ -232,7 +240,7 @@
         else {
             let translationFactor = -1;
 
-            if(navDirection == 'left'){
+            if (navDirection == 'left') {
                 if((itemsCount.value-1) == indexOfVisibleItem.value){
 
                     if(props.stopAtEnd)
@@ -241,7 +249,7 @@
                     indexOfVisibleItem.value = 0
                     translationFactor = itemsCount.value - 1
                 }
-                else{
+                else {
                     indexOfVisibleItem.value += 1
                     translationFactor = -1
                 }
