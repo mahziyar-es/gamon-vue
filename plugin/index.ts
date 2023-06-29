@@ -39,7 +39,7 @@ import type { GamonPluginOptions } from './types/general.type'
 
 import '@/style/general.css'
 import '@/style/animation.css'
-import '@/style/utils.scss'
+// import '@/style/utils.scss'
 
 
 
